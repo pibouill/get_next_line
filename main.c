@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/17 12:51:50 by pibouill          #+#    #+#             */
-/*   Updated: 2023/11/17 12:57:27 by pibouill         ###   ########.fr       */
+/*   Created: 2023/11/19 13:18:58 by pibouill          #+#    #+#             */
+/*   Updated: 2023/11/19 13:21:34 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "get_next_line.h"
+#include <sys/stat.h>
+#include <fnctl.h>
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE=42
-# endif
+int main()
+{
+    int fd;
 
-char    *get_next_line(int fd);
-
-#endif 
+    fd = open("test.txt", O_RDONLY);
+    get_next_line(fd);
+    return (0);
+}
