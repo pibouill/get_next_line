@@ -11,5 +11,7 @@
 !_TAG_PROGRAM_VERSION	5.9.0	//
 BUFFER_SIZE	get_next_line.h	/^#  define BUFFER_SIZE=/;"	d
 GET_NEXT_LINE_H	get_next_line.h	/^# define GET_NEXT_LINE_H$/;"	d
+buffer	get_next_line.c	/^    char    *buffer;$/;"	v	typeref:typename:char *
 get_next_line	get_next_line.c	/^char    *get_next_line(int fd)$/;"	f	typeref:typename:char *
 main	main.c	/^int main()$/;"	f	typeref:typename:int
+readed	get_next_line.c	/^    int     readed;$/;"	v	typeref:typename:int
