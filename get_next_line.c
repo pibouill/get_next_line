@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 13:51:39 by pibouill          #+#    #+#             */
-/*   Updated: 2023/11/21 15:37:15 by pibouill         ###   ########.fr       */
+/*   Updated: 2023/11/21 16:34:04 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,11 @@ char	*read_to_stash(char *stash, int fd)
 	}
 	free(buffer);
 	return (stash);
+}
+
+char	*stash_to_line(char *stash)
+{
+
 }
 
 char	*get_next_line(int fd)
