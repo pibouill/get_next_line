@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 13:51:39 by pibouill          #+#    #+#             */
-/*   Updated: 2023/11/21 16:34:04 by pibouill         ###   ########.fr       */
+/*   Updated: 2023/11/22 18:38:50 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ char	*get_next_line(int fd)
 	static char	*stash;
 
 	stash = NULL;
-	if (fd <  0 || BUFFER_SIZE <= 0 || read(fd, &line, 0) < 0)
+	if (fd <  0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	stash = read_to_stash(stash, fd);
 	if (stash == NULL)
