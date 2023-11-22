@@ -1,5 +1,7 @@
 *test*
 *.o
 a.out
+tags
+*swp
 tags*
 main
