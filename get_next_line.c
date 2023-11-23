@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 13:51:39 by pibouill          #+#    #+#             */
-/*   Updated: 2023/11/23 16:56:16 by pibouill         ###   ########.fr       */
+/*   Updated: 2023/11/23 18:53:04 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,10 @@ char	*read_to_stash(char *stash, int fd)
 	ssize_t	readed;
 	char	*buffer;
 
-	readed = 1;
 	buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (buffer == NULL)
 		return (NULL);
+	readed = 1;
 	while (readed != 0 && !ft_strchr(buffer, '\n'))
 	{
 		readed = read(fd, buffer, BUFFER_SIZE);

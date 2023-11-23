@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 12:51:50 by pibouill          #+#    #+#             */
-/*   Updated: 2023/11/23 15:49:40 by pibouill         ###   ########.fr       */
+/*   Updated: 2023/11/23 18:50:04 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*read_to_stash(char *stash, int fd);
 char	*stash_to_line(char *stash);
 char	*clean_stash(char *stash);
 int		ft_strlen(char *str);
-char	*ft_strchr(char *str, int c);
+char	*ft_strchr(const char *str, int c);
 char	*ft_strjoin(char *str1, char *str2);
 
 #endif
