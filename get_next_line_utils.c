@@ -6,11 +6,21 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 13:58:38 by pibouill          #+#    #+#             */
-/*   Updated: 2023/11/21 14:46:07 by pibouill         ###   ########.fr       */
+/*   Updated: 2023/11/22 20:01:41 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+int	ft_strlen(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
 
 char	*ft_strchr(char *str, int c)
 {

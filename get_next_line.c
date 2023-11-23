@@ -6,12 +6,39 @@
 /*   By: pibouill <pibouill@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 13:51:39 by pibouill          #+#    #+#             */
-/*   Updated: 2023/11/22 18:38:50 by pibouill         ###   ########.fr       */
+/*   Updated: 2023/11/22 19:58:35 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include <stdlib.h>
+
+char	*clean_stash(char *stash)
+{
+	char	cleaned_stash;
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	while (stash[i] && stash[i] != '\n')
+		i++;
+	if (stash[i] == NULL)
+	{
+		free(stash);
+		return (NULL);
+	}
+	cleaned_stash = malloc(sizeof(char) * (ft_strlen(stash) + 1 - i);
+	if (cleaned_stash == NULL)
+		return (NULL);
+	i++;
+	while (stash[i])
+		cleaned_stash[j++] = stash[i++];
+	cleaned_stash[j] = '\0';
+	free(stash);
+	return (cleaned_stash);
+}
+
 
 char	*read_to_stash(char *stash, int fd)
 {
@@ -39,7 +66,30 @@ char	*read_to_stash(char *stash, int fd)
 
 char	*stash_to_line(char *stash)
 {
+	int		i;
+	char	*line;
 
+	i = 0;
+	if (str[i] == NULL)
+		return (NULL);
+	while (str[i] && str[i] != '\n')
+		i++;
+	line = malloc(sizeof(char) * i + 2);
+	if (line == NULL)
+		return (NULL);
+	i = 0;
+	while (stash[i] && stash[i] != '\n')
+	{
+		line[i] = stash[i];
+		i++;
+	}
+	if (str[i] == '\n')
+	{
+		line[i] = stash[i];
+		i++;
+	}
+	line[i] = '\0';
+	return (line);
 }
 
 char	*get_next_line(int fd)
@@ -54,8 +104,6 @@ char	*get_next_line(int fd)
 	if (stash == NULL)
 		return (NULL);
 	line = stash_to_line(stash);
-	//extract from stash to line
-	//clen up stash
-	clean_stash();
+	stash = clean_stash(stash);
 	return (line);
 }
