@@ -5,6 +5,6 @@ a.out
 tags
 *swp
 tags*
-main
+main.c
 *.txt
 *gch
