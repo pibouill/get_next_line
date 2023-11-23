@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 13:18:58 by pibouill          #+#    #+#             */
-/*   Updated: 2023/11/19 16:04:47 by pibouill         ###   ########.fr       */
+/*   Updated: 2023/11/23 16:37:58 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,17 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 int main()
 {
     int     fd;
     char    *line;
-    fd = open("test.txt", O_RDONLY);
+    fd = open("short.txt", O_RDONLY);
     while (1)
     {
         line = get_next_line(fd);
-        if (line == NULL);
+        if (line == NULL)
             break ;
         printf("%s", line);
         free(line);

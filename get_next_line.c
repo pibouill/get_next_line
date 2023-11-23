@@ -6,32 +6,35 @@
 /*   By: pibouill <pibouill@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 13:51:39 by pibouill          #+#    #+#             */
-/*   Updated: 2023/11/22 19:58:35 by pibouill         ###   ########.fr       */
+/*   Updated: 2023/11/23 16:56:16 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include <stdlib.h>
+#include <unistd.h>
+#include <stdio.h>
 
 char	*clean_stash(char *stash)
 {
-	char	cleaned_stash;
+	char	*cleaned_stash;
 	int		i;
 	int		j;
 
 	i = 0;
-	j = 0;
 	while (stash[i] && stash[i] != '\n')
 		i++;
-	if (stash[i] == NULL)
+	if (stash[i] && stash[i] == '\n')
+		i++;
+	if (stash[i] == 0)
 	{
 		free(stash);
 		return (NULL);
 	}
-	cleaned_stash = malloc(sizeof(char) * (ft_strlen(stash) + 1 - i);
+	cleaned_stash = malloc(sizeof(char) * (ft_strlen(stash) - i) + 1);
 	if (cleaned_stash == NULL)
 		return (NULL);
-	i++;
+	j = 0;
 	while (stash[i])
 		cleaned_stash[j++] = stash[i++];
 	cleaned_stash[j] = '\0';
@@ -39,10 +42,9 @@ char	*clean_stash(char *stash)
 	return (cleaned_stash);
 }
 
-
 char	*read_to_stash(char *stash, int fd)
 {
-	int		readed;
+	ssize_t	readed;
 	char	*buffer;
 
 	readed = 1;
@@ -51,7 +53,7 @@ char	*read_to_stash(char *stash, int fd)
 		return (NULL);
 	while (readed != 0 && !ft_strchr(buffer, '\n'))
 	{
-		readed = (int)read(fd, buffer, BUFFER_SIZE);
+		readed = read(fd, buffer, BUFFER_SIZE);
 		if (readed < 0)
 		{
 			free(buffer);
@@ -70,9 +72,9 @@ char	*stash_to_line(char *stash)
 	char	*line;
 
 	i = 0;
-	if (str[i] == NULL)
+	if (stash[i] == 0)
 		return (NULL);
-	while (str[i] && str[i] != '\n')
+	while (stash[i] && stash[i] != '\n')
 		i++;
 	line = malloc(sizeof(char) * i + 2);
 	if (line == NULL)
@@ -83,7 +85,7 @@ char	*stash_to_line(char *stash)
 		line[i] = stash[i];
 		i++;
 	}
-	if (str[i] == '\n')
+	if (stash[i] == '\n')
 	{
 		line[i] = stash[i];
 		i++;
@@ -97,8 +99,7 @@ char	*get_next_line(int fd)
 	char		*line;
 	static char	*stash;
 
-	stash = NULL;
-	if (fd <  0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	stash = read_to_stash(stash, fd);
 	if (stash == NULL)

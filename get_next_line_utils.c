@@ -6,11 +6,13 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 13:58:38 by pibouill          #+#    #+#             */
-/*   Updated: 2023/11/22 20:01:41 by pibouill         ###   ########.fr       */
+/*   Updated: 2023/11/23 16:42:45 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include <stdlib.h>
+#include <stdio.h>
 
 int	ft_strlen(char *str)
 {
@@ -38,17 +40,22 @@ char	*ft_strchr(char *str, int c)
 	return (NULL);
 }
 
-char	*ft_strjoin(char const *str1, char const *str2)
+char	*ft_strjoin(char *str1, char *str2)
 {
 	char		*new;
 	int			i;
 	int			j;
 
+	if (str1 == NULL)
+	{
+		str1 = malloc(sizeof(char));
+		str1[0] = '\0';
+	}
 	if (str1 == NULL || str2 == NULL)
 		return (NULL);
 	i = 0;
 	j = 0;
-	new = malloc(sizeof(char) * (ft_strlen(str1) + ft_strlen(str2) + 1));
+	new = malloc(sizeof(char) * ((ft_strlen(str1) + ft_strlen(str2)) + 1));
 	if (new == NULL)
 		return (NULL);
 	while (str1[i])
@@ -59,5 +66,3 @@ char	*ft_strjoin(char const *str1, char const *str2)
 	new[j] = '\0';
 	return (new);
 }
-
-

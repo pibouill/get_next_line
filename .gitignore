@@ -1,7 +1,9 @@
 *test*
+gnl
 *.o
 a.out
 tags
 *swp
 tags*
 main
+*.txt
