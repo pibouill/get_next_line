@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 13:18:58 by pibouill          #+#    #+#             */
-/*   Updated: 2023/11/23 18:22:36 by pibouill         ###   ########.fr       */
+/*   Updated: 2023/11/24 12:53:01 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main()
 {
     int     fd;
     char    *line;
-    fd = open("short.txt", O_RDONLY);
+    fd = open("big_line_no_nl", O_RDONLY);
     while (1)
     {
         line = get_next_line(fd);

@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 13:51:39 by pibouill          #+#    #+#             */
-/*   Updated: 2023/11/23 18:53:04 by pibouill         ###   ########.fr       */
+/*   Updated: 2023/11/24 12:36:19 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ char	*read_to_stash(char *stash, int fd)
 	if (buffer == NULL)
 		return (NULL);
 	readed = 1;
-	while (readed != 0 && !ft_strchr(buffer, '\n'))
+	while (readed != 0 && !ft_strchr(stash, '\n'))
 	{
 		readed = read(fd, buffer, BUFFER_SIZE);
 		if (readed < 0)

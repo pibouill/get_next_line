@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 13:58:38 by pibouill          #+#    #+#             */
-/*   Updated: 2023/11/23 18:49:53 by pibouill         ###   ########.fr       */
+/*   Updated: 2023/11/24 12:40:21 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,17 @@ char	*ft_strchr(const char *str, int c)
 
 	if (str == NULL)
 		return (NULL);
-	s = (char *)str;
+	s = (char *) str;
+	if (c == '\0')
+		return (s + ft_strlen(s));
+	if (*str == '\0')
+		return (NULL);
 	while (*s)
 	{
 		if (*s == (char) c)
 			return (s);
 		s++;
 	}
-	if ((char) c == '\0')
-		return (s);
 	return (NULL);
 }
 
