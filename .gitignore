@@ -1,5 +1,5 @@
 *test*
-gnl
+gnl*
 *.o
 a.out
 tags
@@ -7,3 +7,4 @@ tags
 tags*
 *.txt
 *gch
+*line*
