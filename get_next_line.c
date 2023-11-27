@@ -6,14 +6,16 @@
 /*   By: pibouill <pibouill@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 13:51:39 by pibouill          #+#    #+#             */
-/*   Updated: 2023/11/24 12:36:19 by pibouill         ###   ########.fr       */
+/*   Updated: 2023/11/27 13:51:45 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include <stdlib.h>
 #include <unistd.h>
-#include <stdio.h>
+//#include <stdio.h>
+//#include <fcntl.h>
+//#include <sys/stat.h>
 
 char	*clean_stash(char *stash)
 {
@@ -108,3 +110,21 @@ char	*get_next_line(int fd)
 	stash = clean_stash(stash);
 	return (line);
 }
+
+//int	main(int ac, char **av)
+//{
+//    int     fd;
+//    char    *line;
+//	(void)argc;
+//    fd = open(argv[1], O_RDONLY);
+//    while (1)
+//    {
+//        line = get_next_line(fd);
+//        if (line == NULL)
+//            break ;
+//        printf("%s", line);
+//        free(line);
+//    }
+//	fd = close(fd);
+//    return (0);
+//}
