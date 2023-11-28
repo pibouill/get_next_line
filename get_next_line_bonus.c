@@ -6,16 +6,16 @@
 /*   By: pibouill <pibouill@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 13:51:39 by pibouill          #+#    #+#             */
-/*   Updated: 2023/11/27 14:20:05 by pibouill         ###   ########.fr       */
+/*   Updated: 2023/11/28 11:16:40 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 #include <stdlib.h>
 #include <unistd.h>
-#include <stdio.h>
-#include <fcntl.h>
-#include <sys/stat.h>
+//#include <stdio.h>
+//#include <fcntl.h>
+//#include <sys/stat.h>
 
 char	*clean_stash(char *stash)
 {
@@ -99,9 +99,9 @@ char	*stash_to_line(char *stash)
 char	*get_next_line(int fd)
 {
 	char		*line;
-	static char	*stash[FD_SETSIZE];
+	static char	*stash[FD_LIMIT];
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || fd > FD_SETSIZE)
+	if (fd < 0 || BUFFER_SIZE <= 0 || fd > FD_LIMIT)
 		return (NULL);
 	stash[fd] = read_to_stash(stash[fd], fd);
 	if (stash[fd] == NULL)
@@ -111,27 +111,32 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-int	main(int ac, char **av)
-{
-	int		fd[3];
-    char    *line[3];
-	(void)ac;
-    fd[0] = open(av[1], O_RDWR);
-	fd[1] = open(av[2], O_RDWR);
-	fd[2] = open(av[3], O_RDWR);
-    while (*line != NULL)
-    {
-        line[0] = get_next_line(fd[0]);
-        line[1] = get_next_line(fd[1]);
-        line[2] = get_next_line(fd[2]);
-		
-		printf("%s", line[0]);
-		printf("%s", line[1]);
-		printf("%s", line[2]);
-        free(line[0]);
-        free(line[1]);
-        free(line[2]);
-    }
-    return (0);
-}
-
+//int	main(int ac, char **av)
+//{
+//	int		fd[3];
+//    char	*line[3];
+//	(void)ac;
+//    fd[0] = open(av[1], O_RDWR);
+//	fd[1] = open(av[2], O_RDWR);
+//	fd[2] = open(av[3], O_RDWR);
+//    while (line[0] != NULL && line[1] != NULL && line[2] != NULL)
+//    {
+//        line[0] = get_next_line(fd[0]);
+//        line[1] = get_next_line(fd[1]);
+//        line[2] = get_next_line(fd[2]);
+//
+//		printf("first call:%s\n", line[0]);
+//		printf("first call:%s\n", line[1]);
+//		printf("first call:%s\n", line[2]);
+//        line[0] = get_next_line(fd[0]);
+//        line[1] = get_next_line(fd[1]);
+//        line[2] = get_next_line(fd[2]);
+//		printf("second call:%s\n", line[0]);
+//		printf("second call:%s\n", line[1]);
+//		printf("second call:%s\n", line[2]);
+//        free(line[0]);
+//        free(line[1]);
+//        free(line[2]);
+//    }
+//    return (0);
+//}

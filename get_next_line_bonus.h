@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 12:51:50 by pibouill          #+#    #+#             */
-/*   Updated: 2023/11/27 13:29:02 by pibouill         ###   ########.fr       */
+/*   Updated: 2023/11/28 10:48:26 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
+# endif
+
+# ifndef FD_LIMIT
+#  define FD_LIMIT 1024
 # endif
 
 # include <unistd.h>
