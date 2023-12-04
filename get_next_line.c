@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 13:51:39 by pibouill          #+#    #+#             */
-/*   Updated: 2023/11/27 13:51:45 by pibouill         ###   ########.fr       */
+/*   Updated: 2023/12/04 18:46:29 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-//int	main(int ac, char **av)
+//int	main(int argv, char **argc)
 //{
 //    int     fd;
 //    char    *line;
