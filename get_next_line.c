@@ -6,16 +6,16 @@
 /*   By: pibouill <pibouill@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 13:51:39 by pibouill          #+#    #+#             */
-/*   Updated: 2023/12/04 18:46:29 by pibouill         ###   ########.fr       */
+/*   Updated: 2023/12/11 14:17:51 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include <stdlib.h>
 #include <unistd.h>
-//#include <stdio.h>
-//#include <fcntl.h>
-//#include <sys/stat.h>
+/*#include <stdio.h>
+#include <fcntl.h>
+#include <sys/stat.h>*/
 
 char	*clean_stash(char *stash)
 {
