@@ -6,16 +6,16 @@
 /*   By: pibouill <pibouill@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 13:51:39 by pibouill          #+#    #+#             */
-/*   Updated: 2023/12/11 14:17:51 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/10/27 14:43:36 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include <stdlib.h>
 #include <unistd.h>
-/*#include <stdio.h>
+#include <stdio.h>
 #include <fcntl.h>
-#include <sys/stat.h>*/
+#include <sys/stat.h>
 
 char	*clean_stash(char *stash)
 {
@@ -111,20 +111,20 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-//int	main(int argv, char **argc)
-//{
-//    int     fd;
-//    char    *line;
-//	(void)argc;
-//    fd = open(argv[1], O_RDONLY);
-//    while (1)
-//    {
-//        line = get_next_line(fd);
-//        if (line == NULL)
-//            break ;
-//        printf("%s", line);
-//        free(line);
-//    }
-//	fd = close(fd);
-//    return (0);
-//}
+/*int	main(int argc, char **argv)*/
+/*{*/
+	/*int     fd;*/
+	/*char    *line;*/
+	/*(void)argc;*/
+	/*fd = open(argv[1], O_RDONLY);*/
+	/*while (1)*/
+	/*{*/
+		/*line = get_next_line(fd);*/
+		/*if (line == NULL)*/
+			/*break ;*/
+		/*printf("%s", line);*/
+		/*free(line);*/
+	/*}*/
+	/*fd = close(fd);*/
+	/*return (0);*/
+/*}*/
